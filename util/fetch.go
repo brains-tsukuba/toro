@@ -1,5 +1,5 @@
 package util
 
-func Fetch() ([]string, error) {
+func Fetch(lang string, since string) ([]string, error) {
 	return nil, nil
 }
