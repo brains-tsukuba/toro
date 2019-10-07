@@ -16,7 +16,7 @@ var (
 
 var rootCmd = &cobra.Command{
 	Use:   "toro",
-	Short: "Search github trending.",
+	Short: "Search GitHub trending.",
 	Run: func(cmd *cobra.Command, args []string) {
 		if since != "" && !(since == "daily" || since == "weekly" || since == "monthly") {
 			fmt.Println("Error: since option's value is invalid")
