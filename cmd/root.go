@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"os"
 
+	"github.com/brains-tsukuba/toro/util"
 	"github.com/spf13/cobra"
 )
 
@@ -11,7 +12,11 @@ var rootCmd = &cobra.Command{
 	Use:   "toro",
 	Short: "Search github trending.",
 	Run: func(cmd *cobra.Command, args []string) {
-		fmt.Println("hello, toro")
+		paths, err := util.Fetch()
+		if err != nil {
+			os.Exit(1)
+		}
+		fmt.Println(paths)
 	},
 }
 
