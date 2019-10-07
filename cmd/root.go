@@ -14,9 +14,12 @@ var rootCmd = &cobra.Command{
 	Run: func(cmd *cobra.Command, args []string) {
 		paths, err := util.Fetch()
 		if err != nil {
+			_ = fmt.Errorf("Error: %s", err)
 			os.Exit(1)
 		}
-		fmt.Println(paths)
+		for i := 0; i < len(paths); i++ {
+			fmt.Println(paths[i])
+		}
 	},
 }
 
