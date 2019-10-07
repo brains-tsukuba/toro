@@ -6,7 +6,6 @@ import (
 	"github.com/PuerkitoBio/goquery"
 )
 
-
 func Parse(url string) ([]string, error) {
 	urls := []string{}
 
@@ -18,7 +17,7 @@ func Parse(url string) ([]string, error) {
 	doc.Find(".Box-row .lh-condensed").Each(func(_ int, s *goquery.Selection) {
 		s.Find("a").Each(func(_ int, a *goquery.Selection) {
 			url, _ := a.Attr("href")
-			urls = append(urls, url)
+			urls = append(urls, url[1:])
 		})
 	})
 	return urls, nil
