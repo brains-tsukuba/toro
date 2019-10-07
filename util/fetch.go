@@ -6,7 +6,7 @@ func Fetch(lang string, since string) ([]string, error) {
 		url += "/" + lang
 	}
 	if since != "" {
-		since += "?since=" + since
+		url += "?since=" + since
 	}
 	return Parse(url)
 }
