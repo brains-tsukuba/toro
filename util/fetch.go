@@ -1,6 +1,12 @@
 package util
 
 func Fetch(lang string, since string) ([]string, error) {
-	url := "https://github.com/trending/" + lang + "?since=" + since
+	url := "https://github.com/trending"
+	if lang != "" {
+		url += "/" + lang
+	}
+	if since != "" {
+		since += "?since=" + since
+	}
 	return Parse(url)
 }
