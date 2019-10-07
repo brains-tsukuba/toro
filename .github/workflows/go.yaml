@@ -18,3 +18,5 @@ jobs:
       run: golint -set_exit_status main
     - name: Lint cmd package
       run: golint -set_exit_status cmd   
+    - name: Lint util package
+      run: golint -set_exit_status util
