@@ -7,7 +7,7 @@ import (
 	"github.com/PuerkitoBio/goquery"
 )
 
-func Parse() ([]string, error) {
+func Parse(url string) ([]string, error) {
 	doc, _ := goquery.NewDocument("http://favstar.fm/users/mattn_jp/")
 	doc.Find(".fs-tweet").Each(func(_ int, s *goquery.Selection) {
 		fmt.Println(s.Find(".fs-tweet-text").Text())
