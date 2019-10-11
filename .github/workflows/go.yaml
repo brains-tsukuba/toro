@@ -17,8 +17,8 @@ jobs:
     - name: Install
       run: go get -u golang.org/x/lint/golint
     - name: Lint main package
-      run: /home/runner/go/bin/golint -set_exit_status main
+      run: $(go list -f {{.Target}} golang.org/x/lint/golint) -set_exit_status main
     - name: Lint cmd package
-      run: /home/runner/go/bin/golint -set_exit_status cmd   
+      run: $(go list -f {{.Target}} golang.org/x/lint/golint) -set_exit_status cmd
     - name: Lint util package
-      run: /home/runner/go/bin/golint -set_exit_status util
+      run: $(go list -f {{.Target}} golang.org/x/lint/golint) -set_exit_status util
