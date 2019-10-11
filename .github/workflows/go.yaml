@@ -5,7 +5,7 @@ jobs:
     strategy:
       matrix:
         go-version: [1.12.x, 1.13.x]
-        platform: [ubuntu-latest, macos-latest, windows-latest]
+        platform: [ubuntu-latest, macos-latest]
     runs-on: ${{ matrix.platform }}
     steps:
     - name: Install Go
@@ -17,8 +17,8 @@ jobs:
     - name: Install
       run: go get -u golang.org/x/lint/golint
     - name: Lint main package
-      run: /home/runner/go/bin/golint -set_exit_status main
+      run: $(go list -f {{.Target}} golang.org/x/lint/golint) -set_exit_status main
     - name: Lint cmd package
-      run: /home/runner/go/bin/golint -set_exit_status cmd   
+      run: $(go list -f {{.Target}} golang.org/x/lint/golint) -set_exit_status cmd
     - name: Lint util package
-      run: /home/runner/go/bin/golint -set_exit_status util
+      run: $(go list -f {{.Target}} golang.org/x/lint/golint) -set_exit_status util
