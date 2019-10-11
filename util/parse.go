@@ -6,6 +6,7 @@ import (
 	"github.com/PuerkitoBio/goquery"
 )
 
+// Parse returns (`list of repo's path`, error), base on url
 func Parse(url string) ([]string, error) {
 	urls := []string{}
 
