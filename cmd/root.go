@@ -38,6 +38,7 @@ var rootCmd = &cobra.Command{
 	},
 }
 
+// Execute is called when `toro` is executed
 func Execute() {
 	rootCmd.PersistentFlags().StringVar(&lang, "lang", "", "filter with programming langage.")
 	rootCmd.PersistentFlags().StringVar(&since, "since", "", "filter with date range( \"daily\", \"weekly\", or \"monthly\" )")
